@@ -33,6 +33,7 @@ function main() {
   export basedir
   export conf="${ACCUMULO_CONF_DIR:-${basedir}/conf}"
   export lib="${basedir}/lib"
+  export s3lib="${basedir}/s3lib"
   export cmd="$1"
 
   if [[ -z $conf || ! -d $conf ]]; then

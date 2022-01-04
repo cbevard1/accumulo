@@ -126,6 +126,7 @@ function main() {
   export basedir
   export conf="${ACCUMULO_CONF_DIR:-${basedir}/conf}"
   export lib="${basedir}/lib"
+  export s3lib="${basedir}/s3lib"
 
   if [[ -f "${conf}/accumulo-env.sh" ]]; then
     #shellcheck source=../conf/accumulo-env.sh

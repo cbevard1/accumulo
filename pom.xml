@@ -117,6 +117,8 @@
     <!-- used for filtering the java source with the current version -->
     <accumulo.release.version>${project.version}</accumulo.release.version>
     <auto-service.version>1.0.1</auto-service.version>
+    <!-- Adds support for S3 to be used as the underlying file system. Should match hadoop-aws depedency version -->
+    <aws.java.sdk.version>1.11.901</aws.java.sdk.version>
     <!-- bouncycastle version for test dependencies -->
     <bouncycastle.version>1.70</bouncycastle.version>
     <!-- Curator version -->
@@ -131,10 +133,10 @@
     <failsafe.forkCount>1</failsafe.forkCount>
     <failsafe.groups />
     <failsafe.reuseForks>false</failsafe.reuseForks>
-    <!-- Version 3.3.1 seems to have issues especially with CountNameNodeOptsBulkIT -->
-    <hadoop.version>3.3.0</hadoop.version>
+    <hadoop.version>3.3.1</hadoop.version>
     <htrace.hadoop.version>4.1.0-incubating</htrace.hadoop.version>
     <it.failIfNoSpecifiedTests>false</it.failIfNoSpecifiedTests>
+    <jaxb.api.version>2.3.1</jaxb.api.version>
     <!-- prevent introduction of new compiler warnings -->
     <maven.compiler.failOnWarning>true</maven.compiler.failOnWarning>
     <maven.compiler.release>11</maven.compiler.release>
@@ -243,6 +245,11 @@
         <scope>import</scope>
       </dependency>
       <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-bundle</artifactId>
+        <version>${aws.java.sdk.version}</version>
+      </dependency>
+      <dependency>
         <groupId>com.beust</groupId>
         <artifactId>jcommander</artifactId>
         <version>1.82</version>
@@ -325,7 +332,12 @@
         <version>1.2</version>
       </dependency>
       <dependency>
-        <!-- legacy junit version specified here for dependency convergence -->
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>${jaxb.api.version}</version>
+      </dependency>
+      <!-- legacy junit version specified here for dependency convergence -->
+      <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>4.13.2</version>
@@ -471,6 +483,11 @@
         <groupId>org.apache.datasketches</groupId>
         <artifactId>datasketches-java</artifactId>
         <version>3.1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-aws</artifactId>
+        <version>${hadoop.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.hadoop</groupId>

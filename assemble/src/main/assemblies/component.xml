@@ -114,6 +114,20 @@
         <include>org.yaml:snakeyaml</include>
       </includes>
     </dependencySet>
+    <dependencySet>
+      <outputDirectory>s3lib</outputDirectory>
+      <directoryMode>0755</directoryMode>
+      <fileMode>0644</fileMode>
+      <useProjectArtifact>false</useProjectArtifact>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+      <includes>
+        <include>org.apache.hadoop:hadoop-client-api</include>
+        <include>org.apache.hadoop:hadoop-client-runtime</include>
+        <include>org.apache.hadoop:hadoop-aws</include>
+        <include>com.amazonaws:aws-java-sdk-bundle</include>
+        <include>javax.xml.bind:jaxb-api</include>
+      </includes>
+    </dependencySet>
   </dependencySets>
   <fileSets>
     <fileSet>
